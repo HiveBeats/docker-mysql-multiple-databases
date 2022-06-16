@@ -6,10 +6,9 @@ set -u
 function create_user_and_database() {
 	local database=$1
 	echo "  Creating database '$database'"
-	#mysql -u$DB_USER -p$DB_PASS dbname<<
 	mysql -u"root" -p"$MYSQL_ROOT_PASSWORD" <<-EOSQL
-	    CREATE DATABASE IF NOT EXISTS `$database`;
-	    GRANT ALL ON `$database`.* TO '$MYSQL_USER'@'%';
+	   CREATE DATABASE IF NOT EXISTS \`$database\`;
+	   GRANT ALL ON \`$database\`.* TO '$MYSQL_USER'@'%';
 EOSQL
 }
 
