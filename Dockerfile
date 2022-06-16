@@ -1,2 +1,2 @@
-FROM postgres:9.6
-COPY create-multiple-postgresql-databases.sh /docker-entrypoint-initdb.d/
+FROM mysql/mysql-server:8.0.26
+COPY create-multiple-mysql-databases.sh /docker-entrypoint-initdb.d/
